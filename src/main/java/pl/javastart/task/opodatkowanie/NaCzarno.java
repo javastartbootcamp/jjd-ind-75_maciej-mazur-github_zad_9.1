@@ -1,0 +1,15 @@
+package pl.javastart.task.opodatkowanie;
+
+public class NaCzarno extends FormaOpodatkowania {
+    private final String taxForm = "Na czarno";
+
+    @Override
+    public double wyliczPodatek(double przychody) {
+        return 0;
+    }
+
+    @Override
+    public String getTaxForm() {
+        return taxForm;
+    }
+}
