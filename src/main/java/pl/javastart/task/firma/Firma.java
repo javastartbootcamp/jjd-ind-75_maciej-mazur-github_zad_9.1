@@ -26,19 +26,10 @@ public class Firma {
         double sumaWydatkow = zsumujWydatki();
 
         System.out.printf("======= Firma: %s ===========\n", nazwa);
-        System.out.printf("Forma opodatkowania: %s\n", formaOpodatkowania.getTaxForm());
+        System.out.printf("Forma opodatkowania: %s\n", formaOpodatkowania.podajFormeOpodatkowania());
         System.out.printf("Suma przychodów: %.2f zł\n", sumaPrzychodow);
         System.out.printf("Suma wydatków: %.2f zł\n", sumaWydatkow);
-
-        double kwotaBazowa;
-
-        if (formaOpodatkowania instanceof NaCzarno || formaOpodatkowania instanceof RyczaltEwidencjonowany) {
-            kwotaBazowa = sumaPrzychodow;
-        } else {
-            kwotaBazowa = sumaPrzychodow - sumaWydatkow;
-        }
-
-        System.out.printf("Podatek do zapłacenia: %.2f zł", formaOpodatkowania.wyliczPodatek(kwotaBazowa));
+        System.out.printf("Podatek do zapłacenia: %.2f zł", formaOpodatkowania.wyliczPodatek(sumaPrzychodow, sumaWydatkow));
         System.out.print("\n\n");
     }
 

@@ -4,12 +4,12 @@ public class RyczaltEwidencjonowany extends FormaOpodatkowania {
     private final String taxForm = "Ryczałt ewidencjonowany";
 
     @Override
-    public double wyliczPodatek(double przychody) {
+    public double wyliczPodatek(double przychody, double wydatki) {
         return przychody * 0.15;
     }
 
     @Override
-    public String getTaxForm() {
+    public String podajFormeOpodatkowania() {
         return taxForm;
     }
 }

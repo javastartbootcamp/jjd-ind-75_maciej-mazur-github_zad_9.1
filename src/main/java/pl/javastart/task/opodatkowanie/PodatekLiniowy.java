@@ -4,12 +4,13 @@ public class PodatekLiniowy extends FormaOpodatkowania {
     private final String taxForm = "Podatek liniowy";
 
     @Override
-    public double wyliczPodatek(double dochody) {
+    public double wyliczPodatek(double przychody, double wydatki) {
+        double dochody = przychody - wydatki;
         return dochody * 0.19;
     }
 
     @Override
-    public String getTaxForm() {
+    public String podajFormeOpodatkowania() {
         return taxForm;
     }
 }
