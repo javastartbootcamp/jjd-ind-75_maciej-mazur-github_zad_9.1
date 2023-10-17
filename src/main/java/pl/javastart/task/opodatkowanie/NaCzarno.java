@@ -1,7 +1,7 @@
 package pl.javastart.task.opodatkowanie;
 
 public class NaCzarno extends FormaOpodatkowania {
-    private final String taxForm = "Na czarno";
+    private final String formaOpodatkowania = "Na czarno";
 
     @Override
     public double wyliczPodatek(double przychody, double wydatki) {
@@ -10,6 +10,6 @@ public class NaCzarno extends FormaOpodatkowania {
 
     @Override
     public String podajFormeOpodatkowania() {
-        return taxForm;
+        return formaOpodatkowania;
     }
 }

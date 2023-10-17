@@ -1,23 +1,29 @@
 package pl.javastart.task.opodatkowanie;
 
 public class SkalaPodatkowa extends FormaOpodatkowania {
-    private final String taxForm = "Skala podatkowa";
+    private static final double KWOTA_PIERWSZEGO_PROGU = 10000;
+    private static final double KWOTA_DRUGIEGO_PROGU = 100000;
+    private static final double PIERWSZY_PROG_PODATKOWY = 0.18;
+    private static final double DRUGI_PROG_PODATKOWY = 0.32;
+    private static final double TAX_FREE = 0;
+
+    private final String formaOpodatkowania = "Skala podatkowa";
 
     @Override
     public double wyliczPodatek(double przychody, double wydatki) {
         double dochody = przychody - wydatki;
 
-        if (dochody < 10000) {
-            return 0;
-        } else if (dochody >= 10000 && dochody < 100000) {
-            return 0.18 * dochody;
+        if (dochody < KWOTA_PIERWSZEGO_PROGU) {
+            return TAX_FREE;
+        } else if (dochody >= KWOTA_PIERWSZEGO_PROGU && dochody < KWOTA_DRUGIEGO_PROGU) {
+            return PIERWSZY_PROG_PODATKOWY * dochody;
         } else {
-            return 0.32 * dochody;
+            return DRUGI_PROG_PODATKOWY * dochody;
         }
     }
 
     @Override
     public String podajFormeOpodatkowania() {
-        return taxForm;
+        return formaOpodatkowania;
     }
 }
